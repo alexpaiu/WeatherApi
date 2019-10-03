@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Weather";
+}
+   <h2>Weather Updates</h2>
+<p id="reply"/>
+<p id="button1" />
+<button>Get Weather</button>
+<script>
+    $(document).ready(function() {
+        $("button").click(function() {
+             $.get("https://api.openweathermap.org/data/2.5/weather?q=London&APPID=da794fc3bcbfc36af0bc149b3fdff45b&units=metric", function(response) {
+                $("reply").text(response.name);
+                $("button1").text(response.timezone);
+             });
+        });
+    });
+</script> 
